@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" placeholder="Name" formControlName="name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" formControlName="first_name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2">Rank</label>
+    <div class="col-sm-10">
+      <select class="form-control" formControlName="academic_rank">
+        <option *ngFor="let rank of academic_ranks" [ngValue]="rank.id">{{ rank.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-sm-2">Title</label>
+    <div class="col-sm-10">
+      <select class="form-control" formControlName="academic_title">
+        <option *ngFor="let title of academic_titles" [ngValue]="title.id">{{ title.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+</form>

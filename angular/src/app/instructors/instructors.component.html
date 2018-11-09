@@ -1,0 +1,5 @@
+<ul class="list-group">
+    <li class="list-group-item font-weight-bold">Instructors</li>
+  <li class="list-group-item" *ngFor="let instructor of instructors"><a routerLink="/instructor/{{instructor.id}}">{{ instructor.attributes.name }}</a></li>
+</ul>
+<button type="button" routerLink="/instructor/create" class="btn btn-primary mt-3">Create</button>

@@ -1,0 +1,6 @@
+<ul class="list-group">
+  <li class="list-group-item font-weight-bold">Courses</li>
+  <li class="list-group-item" *ngFor="let course of courses"><a routerLink="/course/{{course.id}}">{{
+      course.attributes.name }}</a></li>
+</ul>
+<button type="button" routerLink="/course/create" class="btn btn-primary mt-3">Create</button>

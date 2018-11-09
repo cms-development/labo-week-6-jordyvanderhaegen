@@ -1,0 +1,14 @@
+<ul class="list-group">
+  <li class="list-group-item font-weight-bold active">Course</li>
+  <li class="list-group-item" *ngIf="course">{{ course.name }}</li>
+  <li class="list-group-item font-weight-bold">Institution</li>
+  <li class="list-group-item" *ngIf="course">{{ course.field_academic_institution }}</li>
+  <li class="list-group-item font-weight-bold">Students</li>
+  <li class="list-group-item" *ngFor="let student of students"><a routerLink="/student/{{student.id}}">{{
+      student.attributes.name }}</a></li>
+  <li class="list-group-item font-weight-bold">Instructors</li>
+  <li class="list-group-item" *ngFor="let instructor of instructors"><a routerLink="/instructor/{{instructor.id}}">{{
+      instructor.attributes.name }}</a></li>
+</ul>
+<button *ngIf="course" type="button" [routerLink]="['/course/edit', id ]" class="btn btn-primary mt-3">Edit</button>
+<button *ngIf="course" type="button" (click)="onDelete()" class="btn btn-danger mt-3 ml-2">Delete</button>

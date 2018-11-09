@@ -1,0 +1,13 @@
+<ul class="list-group">
+    <li class="list-group-item font-weight-bold active">Instructor</li>
+  <li class="list-group-item" *ngIf="instructor">{{ instructor.attributes.name }}</li>
+  <li class="list-group-item font-weight-bold">First name</li>
+  <li class="list-group-item" *ngIf="instructor">{{ instructor.attributes.field_first_name }}</li>
+  <li class="list-group-item font-weight-bold">Academic rank</li>
+  <li class="list-group-item" *ngIf="instructor">{{ instructor.attributes.field_academic_rank }}</li>
+  <li class="list-group-item font-weight-bold">Academic title</li>
+  <li class="list-group-item" *ngIf="instructor">{{ instructor.attributes.field_academic_title }}</li>
+</ul>
+<button *ngIf="instructor" type="button" [routerLink]="['/instructor/edit', instructor.id ]" class="btn btn-primary mt-3">Edit</button>
+<button *ngIf="instructor" type="button" (click)="onDelete()" class="btn btn-danger mt-3 ml-2">Delete</button>
+

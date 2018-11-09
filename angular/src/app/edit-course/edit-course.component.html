@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="instructors">
+    <div class="form-group row">
+      <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputName" placeholder="Name" formControlName="name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputFirstName" class="col-sm-2 col-form-label">Academic institution</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputacademic_institution" placeholder="Academic institution" formControlName="academic_institution">
+      </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2">Students</label>
+        <div class="col-sm-10">
+          <div class="form-check" *ngFor="let student of form.controls.students.controls; let i = index">
+            <label class="form-check-label" formArrayName="students">
+              <input class="form-check-input" type="checkbox" [formControlName]="i" > {{ students[i].attributes.name }}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+          <label class="col-sm-2">Instructors</label>
+          <div class="col-sm-10">
+            <div class="form-check" *ngFor="let student of form.controls.instructors.controls; let i = index">
+              <label class="form-check-label" formArrayName="instructors">
+                <input class="form-check-input" type="checkbox" [formControlName]="i" > {{ instructors[i].attributes.name }}
+              </label>
+            </div>
+          </div>
+        </div>
+      <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+  </form>
